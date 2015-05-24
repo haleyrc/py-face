@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Test The Cam Stuff</title>
+<link type="text/css" href="static/style.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script>
+  $( document ).ready(function() {
+    setInterval( function() {
+      $.ajax({
+        type: "GET",
+        url: "/cam",
+        success: success
+      });
+    }, 100);
+  });
+
+  function success() {
+    d = new Date();
+    // $( '#base' ).attr( 'src', 'cam/base/?' + d.getTime() );
+    $( '#base' ).attr( 'src', 
+    $( '#blur' ).attr( 'src', 'cam/blur/?' + d.getTime() );
+    $( '#avg' ).attr( 'src', 'cam/avg/?' + d.getTime() );
+    $( '#diff' ).attr( 'src', 'cam/diff/?' + d.getTime() );
+    $( '#gray' ).attr( 'src', 'cam/gray/?' + d.getTime() );
+    $( '#thresh' ).attr( 'src', 'cam/thresh/?' + d.getTime() );
+    $( '#color' ).attr( 'src', 'cam/color/?' + d.getTime() );
+  };
+</script>
+<body style="background: #333;">
+<img class="small-img" id="base" src="/cam/base/" />
+<img class="small-img" id="blur" src="/cam/blur/" />
+<img class="small-img" id="avg" src="/cam/avg/" />
+<img class="small-img" id="diff" src="/cam/diff/" />
+<img class="small-img" id="gray" src="/cam/gray/" />
+<img class="small-img" id="thresh" src="/cam/thresh/" />
+<img class="large-img" id="color" src="/cam/color/" />
+</body>
+</html>
